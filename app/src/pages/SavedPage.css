@@ -1,0 +1,160 @@
+.saved {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 12px 0 120px;
+}
+
+.saved__back {
+  padding: 0 20px 0 16px;
+}
+
+.saved__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.saved__heading {
+  margin: 0;
+}
+
+.saved__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.saved__hint {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ---------- Folders ---------- */
+
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.folder-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 72px;
+  min-width: 0;
+  padding: 0 14px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.folder-tile:hover {
+  border-color: var(--border-button);
+}
+
+.folder-tile__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.folder-tile__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.folder-tile__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.folder-tile__count {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.folder-tile--new {
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px dashed var(--dashed);
+  background: var(--bg);
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.folder-tile--new:hover {
+  border-color: var(--accent-ink);
+}
+
+/* ---------- Outfits ---------- */
+
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.saved__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 200px;
+  padding: 32px 20px;
+  border: 1.5px dashed var(--dashed);
+  border-radius: var(--radius-card-sm);
+  background: var(--bg);
+  text-align: center;
+}
+
+.saved__empty p {
+  margin: 0;
+}
+
+.saved__empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.saved__empty-hint {
+  margin-top: -8px !important;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .folder-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .outfit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .saved__row {
+    align-items: baseline;
+  }
+}

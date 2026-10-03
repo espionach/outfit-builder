@@ -1,0 +1,122 @@
+.selection-bar {
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--gutter));
+  height: 56px;
+  padding: 0 8px 0 22px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: var(--shadow-bar);
+}
+
+.selection-bar--anchored {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 6px);
+  animation: bar-in-anchored 180ms ease-out;
+  transform: translateX(-50%);
+}
+
+.selection-bar--floating {
+  position: fixed;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  animation: bar-in-floating 180ms ease-out;
+}
+
+.selection-bar__count {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.selection-bar__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.selection-bar__cancel,
+.selection-bar__delete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.selection-bar__cancel {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+}
+
+.selection-bar__cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.selection-bar__delete {
+  border: none;
+  background: var(--danger-pill);
+  color: var(--danger-pill-ink);
+  font-weight: 600;
+}
+
+.selection-bar__delete:hover {
+  background: #ff85ae;
+}
+
+.selection-bar__delete:disabled {
+  opacity: 0.5;
+}
+
+@media (max-width: 420px) {
+  .selection-bar {
+    gap: 8px;
+    padding: 0 6px 0 16px;
+  }
+
+  .selection-bar__actions {
+    gap: 6px;
+  }
+
+  .selection-bar__cancel,
+  .selection-bar__delete {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 330px) {
+  .selection-bar__delete svg {
+    display: none;
+  }
+}
+
+@keyframes bar-in-anchored {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes bar-in-floating {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selection-bar {
+    animation: none !important;
+  }
+}

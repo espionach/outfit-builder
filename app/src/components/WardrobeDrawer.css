@@ -1,0 +1,203 @@
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--scrim-light);
+  animation: fade-in 180ms ease-out;
+  transition: opacity 150ms;
+}
+
+/* Let the canvas show clearly while a piece is being dragged onto it. */
+.is-dragging-piece .drawer-scrim {
+  opacity: 0;
+}
+
+.drawer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 61;
+  width: min(var(--column), 100%);
+  height: min(710px, 64vh);
+  height: min(710px, 64dvh);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 10px 20px 0;
+  background: var(--surface);
+  border: 1px solid var(--border-pink);
+  border-bottom: none;
+  border-radius: 28px 28px 0 0;
+  box-shadow: var(--shadow-drawer);
+  animation: drawer-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.drawer:focus {
+  outline: none;
+}
+
+.drawer__grabber {
+  align-self: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--grabber);
+}
+
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.drawer__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  min-width: 0;
+}
+
+.drawer__title h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--accent-text);
+}
+
+.drawer__count {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.drawer__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.drawer__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border: 1.5px dashed var(--dashed);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.drawer__add:hover {
+  border-color: var(--accent-ink);
+}
+
+.drawer__close {
+  width: 38px;
+  height: 38px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.drawer__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: var(--radius-field);
+  border: 1px solid var(--border-pink);
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.drawer__search:focus-within {
+  border-color: var(--border-focus);
+}
+
+.drawer__search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.drawer .tabs {
+  flex: none;
+}
+
+.drawer__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Room for selection checks that poke above the first row. */
+  margin: -8px -8px 0;
+  padding: 8px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.drawer__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer__group-title {
+  margin: 0;
+}
+
+.drawer__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.drawer__empty {
+  margin: 32px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.drawer-open body {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .drawer {
+    padding: 10px var(--gutter) 0;
+  }
+
+  .drawer__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(-50%) translateY(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .drawer-scrim {
+    animation: none;
+  }
+}

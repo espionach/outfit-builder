@@ -1,0 +1,40 @@
+.action-menu {
+  position: fixed;
+  z-index: 150;
+  min-width: 160px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-pink);
+  border-radius: 18px;
+  box-shadow: var(--shadow-popup);
+  animation: pop-in 140ms ease-out;
+}
+
+.action-menu__item {
+  height: 40px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.action-menu__item:hover,
+.action-menu__item:focus-visible {
+  background: var(--bg);
+  outline: none;
+}
+
+.action-menu__item--danger {
+  color: var(--accent-ink);
+}
+
+.action-menu__item:disabled {
+  color: var(--muted);
+  opacity: 0.6;
+}

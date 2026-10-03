@@ -1,0 +1,67 @@
+/* Design tokens from BUILD_SPEC.md §3 */
+:root {
+  /* Fonts */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Colors */
+  --bg: #fff6f9;
+  --surface: #ffffff;
+  --surface-soft: #fffafc;
+  --border: #f1e4ea;
+  --border-pink: #f4d3e0;
+  --border-button: #f0c2d4; /* outlined pink pills (Clear all, Cancel) */
+  --border-focus: #e88bb0; /* focused text fields */
+  --border-check: #d9b3c4; /* empty selection circles */
+  --dot-grid: #f6d5e2;
+  --ink: #4a2a37;
+  --muted: #9a6b7e;
+  --accent: #d81b60;
+  --accent-text: #c2185b;
+  --accent-ink: #b0174f;
+  --accent-deep: #8e0f42; /* text on selected chips, link hover */
+  --accent-wash: #fff0f5; /* selected chip background */
+  --accent-on: #ffd6e5; /* count text on a selected tab */
+  --dashed: #eaa3c0;
+  --lilac-border: #cdb3e0;
+  --lilac-ink: #6a3f8a;
+  --scrim: rgba(74, 42, 55, 0.32);
+  --scrim-light: rgba(74, 42, 55, 0.18);
+  --handle: #e05a8f;
+  --grabber: #efd3de;
+  --danger-pill: #ff6b9d; /* "Delete all" on the dark selection bar */
+  --danger-pill-ink: #3a1426;
+
+  /* Sparkles and folder accents */
+  --sparkle-gold: #f5b83d;
+  --sparkle-sky: #6bb8dc;
+  --folder-pink: #ff6b9d;
+  --folder-blue: #5b9bd5;
+  --folder-lilac: #c9a0dc;
+  --folder-gold: #f5b83d;
+  --folder-mint: #7fd1ae;
+
+  /* Shape */
+  --radius-pill: 999px;
+  --radius-canvas: 28px;
+  --radius-card: 24px;
+  --radius-card-sm: 20px;
+  --radius-tile: 16px;
+  --radius-field: 14px;
+  --radius-popup: 26px;
+
+  /* Shadows (primary button, pop-ups, selection bar only) */
+  --shadow-primary: 0 6px 16px rgba(216, 27, 96, 0.22);
+  --shadow-popup: 0 24px 60px rgba(74, 42, 55, 0.25);
+  --shadow-bar: 0 12px 28px rgba(74, 42, 55, 0.28);
+  --shadow-drawer: 0 -16px 40px rgba(74, 42, 55, 0.16);
+  --shadow-float: 0 4px 10px rgba(74, 42, 55, 0.08);
+
+  /* Layout */
+  --column: 640px;
+  --gutter: 16px;
+  --header-h: 92px;
+
+  /* Dot grid background, reused by the canvas and snapshots */
+  --dots: radial-gradient(var(--dot-grid) 1.2px, transparent 1.2px);
+}

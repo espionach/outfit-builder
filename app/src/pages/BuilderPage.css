@@ -1,0 +1,6 @@
+.builder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
